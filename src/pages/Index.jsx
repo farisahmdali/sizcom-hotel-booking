@@ -4,9 +4,11 @@ import bgVideo from "../asset/video.mp4";
 import DatePicker from "../components/DatePicker";
 import image1 from "../asset/room2@2x.jpg";
 import Card1 from "../components/Card1";
+import { useNavigate } from "react-router-dom";
 
 function Index() {
   const [indexSort, setIndexSort] = useState({ people: 0 });
+  const route = useNavigate()
   const [enable, setEnable] = useState({ checkIn: false, checkOut: false });
   const [enableDown, setEnableDown] = useState({
     checkIn: false,
@@ -28,7 +30,7 @@ function Index() {
     "December",
   ];
   return (
-    <div className="overflow-x-hiddn ">
+    <div className="">
       <Navbar />
       <div className="relative w-full h-screen z-0 bg-dark text-white">
         <video
@@ -101,7 +103,13 @@ function Index() {
                 ) : null}
               </div>
               
-              <div className="h-full w-1/3 border bg-black hover:bg-primary transition duration-500 border-black text-sm flex font-thin text-center justify-center items-center">
+              <div onClick={()=>{
+                let checkin=indexSort.checkIn,checkOut = indexSort.checkOut
+                checkin = `${checkin?.month<10 ? 0+""+checkin?.month :checkin?.month }-${parseInt(checkin?.date)<10 ? 0+""+checkin?.date :checkin?.date}-${checkin?.year}`
+                checkOut = `${checkOut?.month<10 ? 0+""+checkOut?.month :checkOut?.month }-${parseInt(checkOut?.date)<10 ? 0+""+checkOut?.date :checkOut?.date}-${checkOut?.year}`
+                route("/search/"+checkin+"/"+checkOut)
+                console.log(indexSort)
+              }} className="h-full w-1/3 border bg-black hover:bg-primary transition duration-500 border-black text-sm flex font-thin text-center justify-center items-center">
                 CHECK <br /> AVAILABILITY
               </div>
             </div>

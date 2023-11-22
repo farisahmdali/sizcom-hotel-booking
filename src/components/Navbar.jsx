@@ -10,11 +10,14 @@ function Navbar() {
       <div>
         <img width={100} src={logo} alt="" />
       </div>
-      <div className=" items-center justify-between w-1/5 hidden font-medium uppercase text-[13px] lg:flex">
+      <div className=" items-center justify-between w-2/5 hidden font-medium uppercase text-[13px] lg:flex">
         <a href="/#" className={location.pathname==="/" ? "text-primary" : null}>Home</a>
         <a href={"/#rooms"} className={location.pathname==="/rooms" ? "text-primary" : null}>Rooms</a>
+        <a href={"/thalia%20template/about.html"} className={location.pathname==="/rooms" ? "text-primary" : null}>About Us</a>
+        <a href={"/thalia%20template/blog.html"} className={location.pathname==="/rooms" ? "text-primary" : null}>News</a>
+
         <a href="#contact">Contact us</a>
-        {/* <Link className="bg-primary px-4 py-2 shadow-lg">Book Now</Link> */}
+        <Link className="bg-primary px-4 py-2 shadow-lg">Book Now</Link>
       </div>
     </nav>
   );

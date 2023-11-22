@@ -5,6 +5,7 @@ import PoolSuite from './pages/PoolSuite';
 import SmallRoom from './pages/SmallRoom';
 import Apartment from './pages/Apartment';
 import BigApartment from './pages/BigApartment';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/rooms/small-room' element={<SmallRoom/>}/>
         <Route path='/rooms/apartment' element={<Apartment/>}/>
         <Route path="/rooms/big-apartment" element={<BigApartment/>}/>
+        <Route path='/search/:checkin/:checkout' element={<Search/>}/>
       </Routes>
     </div>
   );

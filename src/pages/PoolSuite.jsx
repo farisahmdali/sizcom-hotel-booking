@@ -64,11 +64,11 @@ function PoolSuite() {
   };
 
   useEffect(() => {
-    const payment = 130 * 100 * details.dates.length * details.rooms || 0;
-    console.log(details.dates.length, details.rooms);
+    const payment = 130 * 100 * details?.dates?.length * details.rooms || 0;
+    console.log(details?.dates.length, details.rooms);
     setCost(payment);
     let val = 10
-    for(let i=0;i<details.dates.length;i++){
+    for(let i=0;i<details?.dates.length;i++){
         if((10-detailsofRoom[details.dates[i]])<val){
             val =10-detailsofRoom[details.dates[i]]
         }
