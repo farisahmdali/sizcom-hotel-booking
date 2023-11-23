@@ -59,13 +59,13 @@ function Apartment() {
   };
 
   useEffect(() => {
-    const payment = 110 * 100 * details.dates.length * details.rooms || 0;
-    console.log(details.dates.length, details.rooms);
+    const payment = 110 * 100 * details?.dates?.length * details?.rooms || 0;
+    console.log(details?.dates?.length, details?.rooms);
     setCost(payment);
     let val = 10;
-    for (let i = 0; i < details.dates.length; i++) {
-      if (10 - detailsofRoom[details.dates[i]] < val) {
-        val = 10 - detailsofRoom[details.dates[i]];
+    for (let i = 0; i < details?.dates?.length; i++) {
+      if (10 - detailsofRoom[details?.dates[i]] < val) {
+        val = 10 - detailsofRoom[details?.dates[i]];
       }
     }
     const a = [];
