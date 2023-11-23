@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import instance from "../Configs/axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 function Admin() {
   const [data, setData] = useState({ username: "", pass: "" });
@@ -10,6 +11,7 @@ function Admin() {
 
   return (
     <section className=" bg-black">
+        <Toaster/>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <div className="w-full  rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -24,7 +26,9 @@ function Admin() {
                 instance.get("/login", { params: data }).then((res) => {
                   Cookies.set("token", res.data.token);
                   route("/adminPanel",{replace:true})
-                });
+                }).catch(()=>{
+                    toast.error("Login Failed")
+                })
               }}
             >
               <div>
