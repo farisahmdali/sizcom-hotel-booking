@@ -1,12 +1,14 @@
 // import { DatePicker, Radio } from 'antd';
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const DatePicker = ({setVal}) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const data = []
   const [currentDate, setCurrentDate] = useState();
   const [stateMonth, setMonth] = useState();
   const [stateYear, setYear] = useState();
   const [skip, setSkip] = useState(0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const monthsAndDays = {
     January: 31,
     February: 28, // Leap year has 29 days
@@ -22,6 +24,7 @@ const DatePicker = ({setVal}) => {
     December: 31,
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const monthNames = [
     "January",
     "February",
@@ -37,7 +40,7 @@ const DatePicker = ({setVal}) => {
     "December",
   ];
 
-  const calender = (
+  const calender = useCallback((
     month = new Date().getMonth(),
     year = new Date().getFullYear()
   ) => {
@@ -116,7 +119,7 @@ const DatePicker = ({setVal}) => {
     }
 
     setCurrentDate(monthNames[month] + " " + year);
-  };
+  },[data, monthNames, monthsAndDays, setVal]);
 
   useEffect(() => {
     calender();
