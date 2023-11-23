@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 const CheckOutCalender = ({addDate,removeDate,Data}) => {
-  const [data, setData] = useState([]);
+  const data = []
   const [currentDate, setCurrentDate] = useState();
   const [stateMonth, setMonth] = useState();
   const [stateYear, setYear] = useState();
