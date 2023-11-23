@@ -133,7 +133,7 @@ const CheckOutCalender = ({addDate,removeDate,Data}) => {
 
   useEffect(() => {
     calender();
-  }, [Data]);
+  }, [Data, calender]);
   return (
     <div>
       <table className=" datepicker-table text-white">
