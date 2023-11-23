@@ -10,9 +10,11 @@ function Search() {
   const [enable, setEnable] = useState({});
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     checkin = `${checkin[0]}${checkin[1]}/${checkin[3]}${checkin[4]}/${
       checkin[6] + checkin[7] + checkin[8] + checkin[9]
     }`;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     checkout = `${checkout[0]}${checkout[1]}/${checkout[3]}${checkout[4]}/${
       checkout[6] + checkout[7] + checkout[8] + checkout[9]
     }`;

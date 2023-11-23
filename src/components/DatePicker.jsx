@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 const DatePicker = ({setVal}) => {
-  const [data, setData] = useState([]);
+  const data = []
   const [currentDate, setCurrentDate] = useState();
   const [stateMonth, setMonth] = useState();
   const [stateYear, setYear] = useState();
@@ -120,7 +120,7 @@ const DatePicker = ({setVal}) => {
 
   useEffect(() => {
     calender();
-  }, []);
+  }, [calender]);
   return (
     <div>
       <table className=" datepicker-table">

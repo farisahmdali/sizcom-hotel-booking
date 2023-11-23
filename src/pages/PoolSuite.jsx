@@ -8,17 +8,10 @@ import toast, { Toaster } from "react-hot-toast";
 import Card1 from "../components/Card1";
 
 function PoolSuite() {
-  const [indexSort, setIndexSort] = useState({ people: 0 });
   const [Razorpay] = useRazorpay();
-  const [id, setId] = useState("");
   const [roomsNeeded,setRoomsNeeded] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-  const [enableDown, setEnableDown] = useState({
-    checkIn: false,
-    checkOut: false,
-  });
   const [cost, setCost] = useState(0);
   const [detailsofRoom, setdetailsofRoom] = useState({});
-  const [bookedDate, setBookedDate] = useState([]);
   const [details, setDetails] = useState({ dates: [], rooms: 1 });
 
 
@@ -80,20 +73,7 @@ function PoolSuite() {
     setRoomsNeeded(a)
   }, [details,detailsofRoom]);
 
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+ 
   return (
     <div className="flex flex-col">
       <Toaster />

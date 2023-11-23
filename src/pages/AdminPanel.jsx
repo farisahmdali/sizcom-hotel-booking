@@ -17,7 +17,7 @@ function AdminPanel() {
         Cookies.remove("token")
         route("/",{replace:true})
     })
-  }, []);
+  }, [route]);
   return (
     <div className="min-h-screen w-full bg-black">
         <Toaster/>
