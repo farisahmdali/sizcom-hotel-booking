@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
-import Rooms from './pages/Rooms';
 import PoolSuite from './pages/PoolSuite';
 import SmallRoom from './pages/SmallRoom';
 import Apartment from './pages/Apartment';
