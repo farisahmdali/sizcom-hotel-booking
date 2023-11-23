@@ -108,7 +108,6 @@ function Index() {
                 checkin = `${checkin?.month<10 ? 0+""+checkin?.month :checkin?.month }-${parseInt(checkin?.date)<10 ? 0+""+checkin?.date :checkin?.date}-${checkin?.year}`
                 checkOut = `${checkOut?.month<10 ? 0+""+checkOut?.month :checkOut?.month }-${parseInt(checkOut?.date)<10 ? 0+""+checkOut?.date :checkOut?.date}-${checkOut?.year}`
                 route("/search/"+checkin+"/"+checkOut)
-                console.log(indexSort)
               }} className="h-full w-1/3 border bg-black hover:bg-primary transition duration-500 border-black text-sm flex font-thin text-center justify-center items-center">
                 CHECK <br /> AVAILABILITY
               </div>
@@ -322,7 +321,12 @@ function Index() {
             ) : null}
           </div>
          
-          <button className="bg-primary border border-black p-3 h-12">
+          <button className="bg-primary border border-black p-3 h-12" onClick={()=>{
+             let checkin=indexSort.checkIn,checkOut = indexSort.checkOut
+             checkin = `${checkin?.month<10 ? 0+""+checkin?.month :checkin?.month }-${parseInt(checkin?.date)<10 ? 0+""+checkin?.date :checkin?.date}-${checkin?.year}`
+             checkOut = `${checkOut?.month<10 ? 0+""+checkOut?.month :checkOut?.month }-${parseInt(checkOut?.date)<10 ? 0+""+checkOut?.date :checkOut?.date}-${checkOut?.year}`
+             route("/search/"+checkin+"/"+checkOut)
+          }}>
             Book Now
           </button>
         </div>

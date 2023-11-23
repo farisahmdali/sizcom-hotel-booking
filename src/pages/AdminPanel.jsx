@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import instance from "../Configs/axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 function AdminPanel() {
     const [data,setData] = useState([])
@@ -19,6 +20,7 @@ function AdminPanel() {
   }, []);
   return (
     <div className="min-h-screen w-full bg-black">
+        <Toaster/>
         <input type="text" className="m-5 w-1/5 px-2" placeholder="Enter Phone Number" value={searchTerm} onChange={(e)=>{
              setSearchTerm(e.target.value);
              // Filtering data based on search term
@@ -88,6 +90,7 @@ function AdminPanel() {
               </td>
               <td className="px-6 py-4"> <button className="w-full py-2 bg-primary text-white" onClick={()=>{
                 instance.delete("/delete/"+x?._id,{params:{token:Cookies.get("token")}}).then(()=>{
+                    toast.success("Deleted")
                     instance.get("/data", { params: { token: Cookies.get("token") } }).then((res)=>{
                         setData(res.data)
                         setSearch(res.data)
