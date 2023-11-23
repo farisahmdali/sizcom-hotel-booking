@@ -40,7 +40,8 @@ const CheckOutCalender = ({addDate,removeDate,Data}) => {
     "December",
   ];
 
-  const calender = useCallback((
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const calender = (
     month = new Date().getMonth(),
     year = new Date().getFullYear()
   ) => {
@@ -118,25 +119,26 @@ const CheckOutCalender = ({addDate,removeDate,Data}) => {
       if (b) {
        
           b.addEventListener("click", (e) => {
+            console.log(e.srcElement.className)
             if(e.srcElement.className === "bg-red-600"){
                 e.srcElement.className = "enabled-date"
                 removeDate(`${month+1}/${e.target.innerText}/${year}`)
             }else{
-                e.srcElement.className = "bg-red-600"
+                e.currentTarget.className = "bg-red-600"
                 addDate(`${month+1}/${e.target.innerText}/${year}`)
             }
-            console.log(e)
           });
        
       }
     }
 
     setCurrentDate(monthNames[month] + " " + year);
-  },[Data, addDate, data, monthNames, monthsAndDays, removeDate]);
+  };
 
   useEffect(() => {
     calender();
-  }, [Data, calender]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Data]);
   return (
     <div>
       <table className=" datepicker-table text-white">

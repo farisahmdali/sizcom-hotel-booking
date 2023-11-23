@@ -1,5 +1,5 @@
 // import { DatePicker, Radio } from 'antd';
-import React, { useCallback, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 
 const DatePicker = ({setVal}) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,7 +40,8 @@ const DatePicker = ({setVal}) => {
     "December",
   ];
 
-  const calender = useCallback((
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const calender = (
     month = new Date().getMonth(),
     year = new Date().getFullYear()
   ) => {
@@ -119,11 +120,12 @@ const DatePicker = ({setVal}) => {
     }
 
     setCurrentDate(monthNames[month] + " " + year);
-  },[data, monthNames, monthsAndDays, setVal]);
+  };
 
   useEffect(() => {
     calender();
-  }, [calender]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div>
       <table className=" datepicker-table">
