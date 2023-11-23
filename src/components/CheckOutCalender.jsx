@@ -1,5 +1,5 @@
 // import { DatePicker, Radio } from 'antd';
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const CheckOutCalender = ({addDate,removeDate,Data}) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
